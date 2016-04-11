@@ -21,13 +21,13 @@ class RatyrateGenerator < ActiveRecord::Generators::Base
 
   desc "model is creating..."
   def create_model
-    model_file = File.join('app/models', "#{file_path}.rb")
+    model_file = File.join('app/models/spree', "#{file_path}_decorator.rb")
     raise "User model (#{model_file}) must exits." unless File.exists?(model_file)
     class_collisions 'Rate'
-    template 'model.rb', File.join('app/models', "rate.rb")
-    template 'cache_model.rb', File.join('app/models', "rating_cache.rb")
-    template 'average_cache_model.rb', File.join('app/models', "average_cache.rb")
-    template 'overall_average_model.rb', File.join('app/models', "overall_average.rb")
+    template 'model.rb', File.join('app/models/spree', "rate.rb")
+    template 'cache_model.rb', File.join('app/models/spree', "rating_cache.rb")
+    template 'average_cache_model.rb', File.join('app/models/spree', "average_cache.rb")
+    template 'overall_average_model.rb', File.join('app/models/spree', "overall_average.rb")
   end
 
   def add_rate_path_to_route
